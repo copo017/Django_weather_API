@@ -20,6 +20,20 @@ python manage.py runserver
 # crear superusuario
 python manage.py createsuperuser
 
+# requirements generar
+pip freeze > requirements.txt
+
+# requeriments instalar
+pip install -r requirements.txt
+
+# requerimients revisar
+cat requirements.txt
+
+# activar env
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate  # Windows
+
+
 
 
 # documentacion

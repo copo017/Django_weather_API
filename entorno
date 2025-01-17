@@ -1,0 +1,10 @@
+# linux
+source venv/bin/activate
+
+
+# windows
+venv\Scripts\activate
+
+
+# deactivate
+
