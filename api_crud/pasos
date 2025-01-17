@@ -1,0 +1,72 @@
+# activar venv
+Scripts/ ./activate.ps1
+
+# crear proyecto
+pip install django djangorestframework mysqlclient
+
+# crear app
+python manage.py startapp items
+
+# migrar tablas
+python manage.py makemigrations
+python manage.py migrate
+
+# mapeo de tablas de la base de datos al models
+python manage.py inspectdb > nombre_de_tu_app/models.py
+
+# correr app
+python manage.py runserver
+
+# crear superusuario
+python manage.py createsuperuser
+
+
+
+# documentacion
+https://github.com/juanbeniteza/django-rest-framework-crud?utm_source=chatgpt.com
+https://github.com/vinitpol/Django_api?utm_source=chatgpt.com
+https://github.com/jhonlima97/Api_With_Django?utm_source=chatgpt.com
+https://github.com/AleSantoni/APIRest?utm_source=chatgpt.com
+https://github.com/heribertoalarcon/django-API?utm_source=chatgpt.com
+
+# curl item get
+curl --location 'http://127.0.0.1:8000/api/items'
+
+# curl item post
+curl --location 'http://127.0.0.1:8000/api/items' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name":"corki",
+    "description":"corki",
+    "price": 11
+}'
+
+# curl get weather
+curl --location 'http://127.0.0.1:8000/api/weather/?city=buenos%20aires'
+
+# curl save get weather
+curl --location 'http://127.0.0.1:8000/api/weather/save/?city=Santiago'
+
+# curl post weather
+curl --location 'http://127.0.0.1:8000/api/weather/guardar/' \
+--header 'Content-Type: application/json' \
+--data '{
+    "city": "Buenos Aires"
+}'
+
+# curl token
+curl --location 'http://127.0.0.1:8000/api/token/' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "copo",
+    "password": "123"
+}'
+
+
+# con autenticacion y filtros
+curl --location 'http://127.0.0.1:8000/api/fetch/?city=santiago' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM3MDk2NDY5LCJpYXQiOjE3MzcwOTI4NjksImp0aSI6IjJhMjQ0YjZlMWYwNTQ4MTZiZGMxOWM0NDFiYjJhMWIxIiwidXNlcl9pZCI6MX0.CoJNpEGAKoszbqYHfK6uHUT2soWvjV0-f2lGQ4qQuZQ'
+curl --location 'http://127.0.0.1:8000/api/list/' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM3MDk2NDY5LCJpYXQiOjE3MzcwOTI4NjksImp0aSI6IjJhMjQ0YjZlMWYwNTQ4MTZiZGMxOWM0NDFiYjJhMWIxIiwidXNlcl9pZCI6MX0.CoJNpEGAKoszbqYHfK6uHUT2soWvjV0-f2lGQ4qQuZQ'
+curl --location 'http://127.0.0.1:8000/api/list/?city=santiago' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM3MDk2NDY5LCJpYXQiOjE3MzcwOTI4NjksImp0aSI6IjJhMjQ0YjZlMWYwNTQ4MTZiZGMxOWM0NDFiYjJhMWIxIiwidXNlcl9pZCI6MX0.CoJNpEGAKoszbqYHfK6uHUT2soWvjV0-f2lGQ4qQuZQ'
