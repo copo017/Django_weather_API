@@ -4,6 +4,9 @@ Scripts/ ./activate.ps1
 # crear proyecto
 pip install django djangorestframework mysqlclient
 
+# Empezar proyecto
+django-admin startproject api_crud
+
 # crear app
 python manage.py startapp items
 
